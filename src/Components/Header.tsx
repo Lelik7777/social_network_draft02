@@ -6,7 +6,9 @@ type HeaderType = {
 }
 export const Header: React.FC<HeaderType> = ({title}) => {
     return <div className={s.header}>
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjOaQ0JgvZ3guTmPu_yg-VMznLOH2dar1lWA&usqp=CAU" alt="logo"/>
+        <img src="https://prepod24.ru/uploads/avatars/diplomat_Avatar_78a83767-e05a-4125-881c-e1cdec80a66f_%D0%9B%D1%91%D0%BB%D0%B8%D0%BA.jpg"
+             alt="logo"
+        />
         <h2>{title}</h2>
     </div>
 }

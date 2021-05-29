@@ -1,0 +1,111 @@
+.app {
+    display: grid;
+    grid-template-areas: 'h h' 's w';
+    grid-template-columns: 20vw 80vw;
+    grid-template-rows: 10vh 1fr;
+    grid-gap: 1vw;
+    margin: 1px;
+    font-family: Tahoma sans-serif;
+}
+
+.header {
+    grid-area: h;
+    background-color: #5f74ff;
+    position: relative;
+
+}
+
+.header h2 {
+    text-align: center;
+    color: #d4ff99;
+}
+
+.header img {
+    width: 50px;
+    border-radius: 30px;
+    position: absolute;
+    top: 5px;
+    left: 10px;
+}
+
+.sidebar {
+    background-color: #5E8B4EFF;
+    grid-area: s;
+    padding: 3em 0;
+    border-radius: 0px 5px 5px 0;
+
+}
+
+.sidebar a {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    margin-bottom: 1.5em;
+}
+
+.wrapper {
+    grid-area: w;
+    background-color: #f7ffe8;
+}
+
+.profile {
+    background-color: #ffab70;
+
+}
+
+.profile .wrapper {
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+}
+
+.profile .posts {
+    padding-left: 5vw;
+}
+
+.profile .img img {
+    width: 100%;
+    height: 250px;
+}
+
+.profile .ava img {
+    width: 100px;
+    margin-left: 5vw;
+    padding-top: 20px;
+}
+.posts input{
+    margin-bottom: 20px;
+}
+.posts button {
+    border-radius: 5px;
+    padding: 3px;
+    background-color: gold;
+    margin-left: 3px;
+    color: #f7ffe8;
+    cursor: pointer;
+}
+.posts button:hover{
+    margin-left: 10px;
+    background-color: #ff4f4a;
+}
+.posts input:focus{
+    border-radius: 5px;
+    background-color: yellow;
+    color: #5f74ff;
+}
+.post{
+    background-color: #d4ff99;
+    margin-left: 5em;
+    width: 40vw;
+    margin-bottom: 5px;
+    border-radius: 30px;
+    padding: 15px;
+
+}
+.post::first-letter{
+    font-size: larger;
+}
+.post::before{
+    content: 'My post: ';
+    color:blue;
+    margin-right: 10px;
+}
