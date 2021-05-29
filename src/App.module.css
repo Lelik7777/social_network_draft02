@@ -1,7 +1,7 @@
 .app {
     display: grid;
     grid-template-areas: 'h h' 's w';
-    grid-template-columns: 20vw 80vw;
+    grid-template-columns: 15vw 85vw;
     grid-template-rows: 10vh 1fr;
     grid-gap: 1vw;
     margin: 1px;
@@ -10,7 +10,7 @@
 
 .header {
     grid-area: h;
-    background-color: #5f74ff;
+    background-color: #3b8c9a;
     position: relative;
 
 }
@@ -29,7 +29,7 @@
 }
 
 .sidebar {
-    background-color: #5E8B4EFF;
+    background-color: #4c9778;
     grid-area: s;
     padding: 3em 0;
     border-radius: 0px 5px 5px 0;

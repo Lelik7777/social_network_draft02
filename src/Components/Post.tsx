@@ -1,9 +1,12 @@
 import React from 'react';
 import s from '../App.module.css';
+import {ReactComponent} from '*.svg';
 
 type PostType = {}
 export const Post: React.FC<PostType> = ({}) => {
-    return <div className={s.post}>
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda aut consequuntur cupiditate distinctio enim est eveniet itaque molestiae nemo, odio placeat praesentium qui quod repudiandae, tempore. Autem eaque ratione tenetur!
-    </div>
+   return <React.Fragment >
+       <p className={s.post}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquid, consequatur dicta doloremque eius error
+           et eum excepturi fugit minima molestias natus non nostrum pariatur placeat quisquam ullam, voluptate
+           voluptatibus.</p>
+   </React.Fragment>
 }
