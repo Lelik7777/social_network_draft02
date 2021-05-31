@@ -1,12 +1,13 @@
 import React from 'react';
 import s from '../App.module.css';
-import {ReactComponent} from '*.svg';
+import {PostType} from './Store';
 
-type PostType = {}
-export const Post: React.FC<PostType> = ({}) => {
-   return <React.Fragment >
-       <p className={s.post}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquid, consequatur dicta doloremque eius error
-           et eum excepturi fugit minima molestias natus non nostrum pariatur placeat quisquam ullam, voluptate
-           voluptatibus.</p>
-   </React.Fragment>
+
+export const Post: React.FC<PostType> = ({id, title, like}) => {
+    return <React.Fragment>
+        <div className={s.post}>
+            <div style={{textIndent: '1em'}}>{title}</div>
+            <div className={s.like}>{like}</div>
+        </div>
+    </React.Fragment>
 }

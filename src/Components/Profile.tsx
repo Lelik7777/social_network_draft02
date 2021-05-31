@@ -1,9 +1,13 @@
 import React from 'react';
 import s from '../App.module.css';
 import {Posts} from './Posts';
+import {ProfilePageType} from './Store';
 
-type ProfileType = {}
-export const Profile: React.FC<ProfileType> = ({}) => {
+type ProfileType = {
+    data: ProfilePageType;
+    addPost: (s: string) => void;
+}
+export const Profile: React.FC<ProfileType> = ({data, addPost}) => {
     return <div className={s.profile}>
         <div className={s.img}>
             <img
@@ -16,7 +20,7 @@ export const Profile: React.FC<ProfileType> = ({}) => {
                 <div style={{paddingLeft: '20px', fontSize: 'larger', color: 'blue', fontFamily: 'fantasy'}}>Lelik Jan
                 </div>
             </div>
-            <Posts/>
+            <Posts data={data} addPost={addPost}/>
         </div>
     </div>
 }

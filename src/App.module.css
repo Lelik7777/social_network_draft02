@@ -25,7 +25,7 @@
     border-radius: 30px;
     position: absolute;
     top: 5px;
-    left: 10px;
+    left: 13px;
 }
 
 .sidebar {
@@ -72,9 +72,11 @@
     margin-left: 5vw;
     padding-top: 20px;
 }
-.posts input{
+
+.posts input {
     margin-bottom: 20px;
 }
+
 .posts button {
     border-radius: 5px;
     padding: 3px;
@@ -83,16 +85,19 @@
     color: #f7ffe8;
     cursor: pointer;
 }
-.posts button:hover{
+
+.posts button:hover {
     margin-left: 10px;
     background-color: #ff4f4a;
 }
-.posts input:focus{
+
+.posts input:focus {
     border-radius: 5px;
     background-color: yellow;
     color: #5f74ff;
 }
-.post{
+
+.post {
     background-color: #d4ff99;
     margin-left: 5em;
     width: 40vw;
@@ -101,11 +106,23 @@
     padding: 15px;
 
 }
-.post::first-letter{
+
+.post::first-letter {
     font-size: larger;
 }
-.post::before{
+
+.post::before {
     content: 'My post: ';
-    color:blue;
+    color: blue;
+}
+
+.like {
+    color: #97405a;
+}
+
+.like::before {
+    content: "Like:";
+    color: #97405a;
     margin-right: 10px;
+    font-size: large;
 }
