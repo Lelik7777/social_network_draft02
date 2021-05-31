@@ -5,9 +5,11 @@ import {ProfilePageType} from './Store';
 
 type ProfileType = {
     data: ProfilePageType;
-    addPost: (s: string) => void;
+    addPost: () => void;
+    onChange:(s:string)=>void;
+    textInput:string;
 }
-export const Profile: React.FC<ProfileType> = ({data, addPost}) => {
+export const Profile: React.FC<ProfileType> = ({data, addPost,onChange,textInput}) => {
     return <div className={s.profile}>
         <div className={s.img}>
             <img
@@ -20,7 +22,7 @@ export const Profile: React.FC<ProfileType> = ({data, addPost}) => {
                 <div style={{paddingLeft: '20px', fontSize: 'larger', color: 'blue', fontFamily: 'fantasy'}}>Lelik Jan
                 </div>
             </div>
-            <Posts data={data} addPost={addPost}/>
+            <Posts data={data} addPost={addPost} onChange={onChange} textInput={textInput}/>
         </div>
     </div>
 }

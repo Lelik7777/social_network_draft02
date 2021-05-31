@@ -8,14 +8,22 @@ import {StateType} from './Components/Store';
 
 type AppType = {
     data: StateType;
-    addPost: (s: string) => void;
+    addPost: () => void;
+    onChange:(s:string)=>void;
+    textInput:string;
 }
-const App: React.FC<AppType> = ({data, addPost}) => {
+const App: React.FC<AppType> = ({data, addPost,onChange,textInput}) => {
     return <div className={s.app}>
         <Header title={'social network'}/>
         <Sidebar/>
         <div className={s.wrapper}>
-            <Route path={`/profile`} render={() => <Profile data={data.profilePage} addPost={addPost}/>}/>
+            <Route path={`/profile`} render={() => <Profile
+                data={data.profilePage}
+                addPost={addPost}
+                onChange={onChange}
+                textInput={textInput}
+            />}
+            />
         </div>
     </div>
 }

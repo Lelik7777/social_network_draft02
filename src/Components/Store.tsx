@@ -27,10 +27,11 @@ export type StateType = {
 }
 export type StoreType = {
     _state: StateType;
-    addPost: (s: string) => void;
+    addPost: () => void;
     subscribe: (f: (s: StoreType) => void) => void;
     _rerender: (s: StoreType) => void;
     getState: () => StateType;
+    onChange:(s:string)=>void;
 }
 
 const textPost = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque distinctio dolore ea exercitationem harum, magni minima nam, non obcaecati officiis praesentium, quisquam quo soluta suscipit veniam? Ducimus esse quos repudiandae.'
@@ -42,7 +43,7 @@ export const store: StoreType = {
                 {id: v1(), title: textPost, like: 34},
                 {id: v1(), title: textPost, like: 12},
             ],
-            newPostText: 'new post',
+            newPostText: '',
         },
         dialogsPage: {
             dialog: [],
@@ -57,9 +58,13 @@ export const store: StoreType = {
     subscribe(f) {
         this._rerender = f;
     },
-    addPost(s) {
-        let newPost = {id: v1(), title: s, like: Math.floor(Math.random() * 40 + 1)};
+    addPost() {
+        let newPost = {id: v1(), title: this._state.profilePage.newPostText, like: Math.floor(Math.random() * 40 + 1)};
         this._state.profilePage.posts.unshift(newPost);
         this._rerender(this);
     },
+    onChange(s:string){
+        this._state.profilePage.newPostText=s;
+        this._rerender(this);
+    }
 };
