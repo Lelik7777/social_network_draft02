@@ -1,7 +1,7 @@
 import React from 'react';
 import s from '../App.module.css';
 import {Posts} from './Posts';
-import {ActionType, ProfilePageType} from './Store';
+import {ActionType, ProfilePageType} from './Redux/Store';
 
 type ProfileType = {
     data: ProfilePageType;

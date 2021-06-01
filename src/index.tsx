@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from 'react-router-dom';
-import {store, StoreType} from './Components/Store';
+import {store, StoreType} from './Components/Redux/Store';
 
 
 function rerenderApp(store: StoreType) {

@@ -4,7 +4,7 @@ import s from './App.module.css';
 import {Header} from './Components/Header';
 import {Sidebar} from './Components/Sidebar';
 import {Profile} from './Components/Profile';
-import {ActionType, StateType} from './Components/Store';
+import {ActionType, StateType} from './Components/Redux/Store';
 
 type AppType = {
     data: StateType;

@@ -1,7 +1,7 @@
 import {v1} from 'uuid';
+import profileReducer, {ADD_POST, ON_CHANGE_TEXT} from './profileReducer';
 
-export const ADD_POST = 'ADD-POST';
-export const ON_CHANGE_TEXT = 'ON-CHANGE-TEXT';
+
 const TEXT_POST = 'Bolek and Lolek are two Polish cartoon characters from the children\'s TV animated comedy series by the same title.[1] They were partially created by Alfred Ledwig before being developed by Władysław Nehrebecki and Leszek Lorek. The series is about two twin brothers and their fun (and sometimes silly) adventures which often involve spending a lot of time outdoors.'
 
 export type PostType = {
@@ -31,10 +31,10 @@ export type StateType = {
 }
 export type ActionType = AddPostType | OnChangeTextType;
 
-type AddPostType = {
+export type AddPostType = {
     type: typeof ADD_POST;
 }
-type OnChangeTextType = {
+export type OnChangeTextType = {
     type: typeof ON_CHANGE_TEXT;
     textNew: string;
 }
@@ -44,7 +44,6 @@ export type StoreType = {
     subscribe: (f: (s: StoreType) => void) => void;
     _rerender: (s: StoreType) => void;
     getState: () => StateType;
-    _onChange: (s: string) => void;
     dispatch: (action: ActionType) => void;
 }
 //export type StoreType = typeof store;
@@ -62,39 +61,16 @@ export const store: StoreType = {
             message: []
         },
     },
-    _rerender() {
+    _rerender(s: StoreType) {
     },
     getState() {
         return this._state
     },
-    subscribe(f) {
+    subscribe(f: (s: StoreType) => void) {
         this._rerender = f;
     },
-
-    _onChange(s: string) {
-        this._state.profilePage.newPostText = s;
-        this._rerender(this);
+    dispatch(a: ActionType){
+    this._state.profilePage=profileReducer(this._state.profilePage,a);
+    this._rerender(this);
     },
-
-    dispatch(a) {
-        switch (a.type) {
-            case ADD_POST:
-                if (this._state.profilePage.newPostText.trim()) {
-                    let newPost = {
-                        id: v1(),
-                        title: this._state.profilePage.newPostText.trim(),
-                        like: Math.floor(Math.random() * 40 + 1)
-                    };
-                    this._state.profilePage.posts.unshift(newPost);
-                    this._state.profilePage.newPostText = '';
-                    this._rerender(this);
-                }
-                break;
-            case ON_CHANGE_TEXT:
-                if (a.textNew)
-                    this._onChange(a.textNew);
-        }
-    }
-};
-export const createAddPostAction = (): AddPostType => ({type: ADD_POST});
-export const createOnChangeTextAction = (s: string): OnChangeTextType => ({type: ON_CHANGE_TEXT, textNew: s});
+}
