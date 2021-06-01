@@ -1,7 +1,7 @@
 import React, {ChangeEvent} from 'react';
 import s from '../App.module.css';
 import {Post} from './Post';
-import {ActionType, ProfilePageType} from './Store';
+import {ActionType, createAddPostAction, ProfilePageType} from './Store';
 
 type PostsType = {
     data: ProfilePageType
@@ -9,7 +9,7 @@ type PostsType = {
 }
 export const Posts: React.FC<PostsType> = ({data, dispatch}) => {
     const renderPosts = data.posts.map(d => <Post key={d.id} id={d.id} title={d.title} like={d.like}/>);
-    const addPostOnClick = () => dispatch({type: 'ADD-POST'});
+    const addPostOnClick = () => dispatch(createAddPostAction());
     const onChangeTextarea = (e: ChangeEvent<HTMLTextAreaElement>) => dispatch({
         type: 'ON-CHANGE-TEXT',
         textNew: e.currentTarget.value
