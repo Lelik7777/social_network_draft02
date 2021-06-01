@@ -13,7 +13,6 @@ function rerenderApp(store: StoreType) {
             <BrowserRouter><App
                 data={store.getState()}
                 dispatch={store.dispatch.bind(store)}
-                textTextArea={store.getState().profilePage.newPostText}
             />
             </BrowserRouter>
         </React.StrictMode>,

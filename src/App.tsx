@@ -9,9 +9,8 @@ import {ActionType, StateType} from './Components/Store';
 type AppType = {
     data: StateType;
     dispatch: (a: ActionType) => void;
-    textTextArea: string;
 }
-const App: React.FC<AppType> = ({data, dispatch, textTextArea}) => {
+const App: React.FC<AppType> = ({data, dispatch}) => {
     return <div className={s.app}>
         <Header title={'social network'}/>
         <Sidebar/>
@@ -20,7 +19,6 @@ const App: React.FC<AppType> = ({data, dispatch, textTextArea}) => {
                 <Profile
                     data={data.profilePage}
                     dispatch={dispatch}
-                    textTextArea={textTextArea}
                 />}
             />
         </div>

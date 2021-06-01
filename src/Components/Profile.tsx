@@ -6,9 +6,8 @@ import {ActionType, ProfilePageType} from './Store';
 type ProfileType = {
     data: ProfilePageType;
     dispatch: (a: ActionType) => void;
-    textTextArea: string;
 }
-export const Profile: React.FC<ProfileType> = ({data, dispatch, textTextArea}) => {
+export const Profile: React.FC<ProfileType> = ({data, dispatch}) => {
     return <div className={s.profile}>
         <div className={s.img}>
             <img
@@ -26,7 +25,7 @@ export const Profile: React.FC<ProfileType> = ({data, dispatch, textTextArea}) =
                     Lelik Jan
                 </div>
             </div>
-            <Posts data={data} dispatch={dispatch} textTextarea={textTextArea}/>
+            <Posts data={data} dispatch={dispatch}/>
         </div>
     </div>
 }

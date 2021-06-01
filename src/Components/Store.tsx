@@ -85,10 +85,13 @@ export const store: StoreType = {
         this._rerender(this);
     },
     dispatch(action) {
-        if (action.type == 'ADD-POST') {
-            this._addPost();
-        } else if (action.type === 'ON-CHANGE-TEXT') {
-            this._onChange(action.textNew);
+        switch (action.type) {
+            case 'ADD-POST':
+                this._addPost();
+                break;
+            case 'ON-CHANGE-TEXT':
+                this._onChange(action.textNew)
+                break;
         }
     }
 };
