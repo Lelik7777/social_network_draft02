@@ -29,11 +29,6 @@ export type StateType = {
     profilePage: ProfilePageType;
     dialogsPage: DialogsPageType;
 }
-//as variant  ActionType
-// export type ActionType ={
-//     type: 'ADD-POST' | 'ON-CHANGE-TEXT';
-//     textNew?:string;
-// }
 export type ActionType = AddPostType | OnChangeTextType;
 
 type AddPostType = {
@@ -53,7 +48,7 @@ export type StoreType = {
     dispatch: (action: ActionType) => void;
 }
 //export type StoreType = typeof store;
-export const store:StoreType = {
+export const store: StoreType = {
     _state: {
         profilePage: {
             posts: [
@@ -80,17 +75,8 @@ export const store:StoreType = {
         this._state.profilePage.newPostText = s;
         this._rerender(this);
     },
- /*   dispatch(action) {
-        switch (action.type) {
-            case ADD_POST:
-                this._addPost();
-                break;
-            case ON_CHANGE_TEXT:
-                this._onChange(action.textNew)
-                break;
-        }
-    }*/
-    dispatch(a){
+
+    dispatch(a) {
         switch (a.type) {
             case ADD_POST:
                 if (this._state.profilePage.newPostText.trim()) {
@@ -105,10 +91,10 @@ export const store:StoreType = {
                 }
                 break;
             case ON_CHANGE_TEXT:
-                if(a.textNew)
-                this._onChange(a.textNew);
+                if (a.textNew)
+                    this._onChange(a.textNew);
         }
     }
 };
-export const createAddPostAction = ():AddPostType => ({type: ADD_POST});
-export const createOnChangeTextAction = (s: string) => ({type: ON_CHANGE_TEXT, textNew: s});
+export const createAddPostAction = (): AddPostType => ({type: ADD_POST});
+export const createOnChangeTextAction = (s: string): OnChangeTextType => ({type: ON_CHANGE_TEXT, textNew: s});
