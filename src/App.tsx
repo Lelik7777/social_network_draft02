@@ -4,25 +4,24 @@ import s from './App.module.css';
 import {Header} from './Components/Header';
 import {Sidebar} from './Components/Sidebar';
 import {Profile} from './Components/Profile';
-import {StateType} from './Components/Store';
+import {ActionType, StateType} from './Components/Store';
 
 type AppType = {
     data: StateType;
-    addPost: () => void;
-    onChange:(s:string)=>void;
-    textInput:string;
+    dispatch: (a: ActionType) => void;
+    textTextArea: string;
 }
-const App: React.FC<AppType> = ({data, addPost,onChange,textInput}) => {
+const App: React.FC<AppType> = ({data, dispatch, textTextArea}) => {
     return <div className={s.app}>
         <Header title={'social network'}/>
         <Sidebar/>
         <div className={s.wrapper}>
-            <Route path={`/profile`} render={() => <Profile
-                data={data.profilePage}
-                addPost={addPost}
-                onChange={onChange}
-                textInput={textInput}
-            />}
+            <Route path={`/profile`} render={() =>
+                <Profile
+                    data={data.profilePage}
+                    dispatch={dispatch}
+                    textTextArea={textTextArea}
+                />}
             />
         </div>
     </div>

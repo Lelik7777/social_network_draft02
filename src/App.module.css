@@ -15,9 +15,13 @@
 
 }
 
-.header h2 {
+.header h1 {
     text-align: center;
-    color: #d4ff99;
+    color: rgba(212, 255, 153, 0.8);
+    text-shadow: 4px 4px #155a72;
+    position: relative;
+    bottom: 55%;
+    font-size:xxx-large;
 }
 
 .header img {
@@ -73,25 +77,28 @@
     padding-top: 20px;
 }
 
-.posts input {
+.posts textarea {
     margin-bottom: 20px;
 }
 
 .posts button {
+    position: relative;
+    bottom: 30px;
     border-radius: 5px;
-    padding: 3px;
+    padding: 5px;
     background-color: gold;
     margin-left: 3px;
     color: #f7ffe8;
     cursor: pointer;
+    border: 1px solid orange;
 }
 
 .posts button:hover {
     margin-left: 10px;
-    background-color: #ff4f4a;
+    background-color: #ffa960
 }
 
-.posts input:focus {
+.posts textarea:focus {
     border-radius: 5px;
     background-color: yellow;
     color: #5f74ff;

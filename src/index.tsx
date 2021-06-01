@@ -12,9 +12,8 @@ function rerenderApp(store: StoreType) {
         <React.StrictMode>
             <BrowserRouter><App
                 data={store.getState()}
-                addPost={store.addPost.bind(store)}
-                onChange={store.onChange.bind(store)}
-                textInput={store.getState().profilePage.newPostText}
+                dispatch={store.dispatch.bind(store)}
+                textTextArea={store.getState().profilePage.newPostText}
             />
             </BrowserRouter>
         </React.StrictMode>,
