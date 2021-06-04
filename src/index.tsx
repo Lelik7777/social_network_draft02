@@ -4,14 +4,14 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from 'react-router-dom';
-import {StateType, store} from './Components/Redux/Store';
+import store, {StoreType} from './Components/Redux/store-redux';
 
 
-function rerenderApp(state: StateType) {
+function rerenderApp(store: StoreType) {
     ReactDOM.render(
         <React.StrictMode>
             <BrowserRouter><App
-                data={state}
+                data={store}
                 dispatch={store.dispatch.bind(store)}
             />
             </BrowserRouter>
@@ -20,8 +20,9 @@ function rerenderApp(state: StateType) {
     );
 }
 
-rerenderApp(store.getState());
-store.subscribe(rerenderApp);
+rerenderApp(store);
+store.subscribe(() =>
+    rerenderApp(store));
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
