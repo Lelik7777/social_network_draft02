@@ -1,17 +1,23 @@
 import React from 'react';
-import {StoreType} from './Redux/store-redux';
+import store, {StoreType} from './Redux/store-redux';
 import {Posts} from './Posts';
 import {createAddPostAction, createOnChangeTextAction} from './Redux/profileReducer';
+import StoreContext from '../StoreContext';
 
 
 type PostsContainerType = {
-    data: StoreType;
 }
-export const PostsContainer: React.FC<PostsContainerType> = ({data}) => {
+export const PostsContainer: React.FC<PostsContainerType> = ({}) => {
 
-    const addPostOnClick = () => data.dispatch(createAddPostAction());
-    const onChangeTextarea = (e: string) => data.dispatch(createOnChangeTextAction(e));
-    return <div>
-        <Posts data={data} onChange={onChangeTextarea} addPost={addPostOnClick}/>
+
+    return <div><StoreContext.Consumer>{
+        (store)=>{
+            const addPostOnClick = () => store.dispatch(createAddPostAction());
+            const onChangeTextarea = (e: string) => store.dispatch(createOnChangeTextAction(e));
+            return<Posts data={store} onChange={onChangeTextarea} addPost={addPostOnClick}/>
+        }
+    }
+    </StoreContext.Consumer>
+
     </div>
 };

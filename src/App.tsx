@@ -4,23 +4,16 @@ import s from './App.module.css';
 import {Header} from './Components/Header';
 import {Sidebar} from './Components/Sidebar';
 import {Profile} from './Components/Profile';
-import {StoreType} from './Components/Redux/store-redux';
 
 
 type AppType = {
-    data: StoreType;
 }
-const App: React.FC<AppType> = ({data}) => {
+const App: React.FC<AppType> = ({}) => {
     return <div className={s.app}>
         <Header title={'social network'}/>
         <Sidebar/>
         <div className={s.wrapper}>
-            <Route path={`/profile`} render={() =>
-                <Profile
-                    data={data}
-
-                />}
-            />
+            <Route path={`/profile`} render={() =><Profile/>}/>
         </div>
     </div>
 }

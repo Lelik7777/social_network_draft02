@@ -5,9 +5,9 @@ import {PostsContainer} from './PostsContainer';
 
 
 type ProfileType = {
-    data: StoreType;
+
 }
-export const Profile: React.FC<ProfileType> = ({data}) => {
+export const Profile: React.FC<ProfileType> = ({}) => {
     return <div className={s.profile}>
         <div className={s.img}>
             <img
@@ -25,7 +25,7 @@ export const Profile: React.FC<ProfileType> = ({data}) => {
                     Lelik Jan
                 </div>
             </div>
-            <PostsContainer data={data}/>
+            <PostsContainer/>
         </div>
     </div>
 }
