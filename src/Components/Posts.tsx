@@ -10,7 +10,8 @@ type PostsType = {
     addPost: () => void;
 }
 export const Posts: React.FC<PostsType> = ({addPost, onChange, data}) => {
-    const renderPosts = data.getState().profilePage.posts.map(d => <Post key={d.id} id={d.id} title={d.title} like={d.like}/>);
+    const renderPosts = data.getState().profilePage.posts.map(d => <Post key={d.id} id={d.id} title={d.title}
+                                                                         like={d.like}/>);
     const addPostOnClick = () => addPost();
     const onChangeTextarea = (e: ChangeEvent<HTMLTextAreaElement>) => onChange(e.currentTarget.value);
     return <div className={s.posts}>

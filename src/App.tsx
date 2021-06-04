@@ -8,7 +8,7 @@ import {StoreType} from './Components/Redux/store-redux';
 
 
 type AppType = {
-    data:StoreType;
+    data: StoreType;
 }
 const App: React.FC<AppType> = ({data}) => {
     return <div className={s.app}>
