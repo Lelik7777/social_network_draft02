@@ -1,3 +1,4 @@
+/*
 import {v1} from 'uuid';
 import profileReducer, {ADD_POST, ON_CHANGE_TEXT} from './profileReducer';
 
@@ -41,8 +42,8 @@ export type OnChangeTextType = {
 
 export type StoreType = {
     _state: StateType;
-    subscribe: (f: (s: StoreType) => void) => void;
-    _rerender: (s: StoreType) => void;
+    subscribe: (f: (s: StateType) => void) => void;
+    _rerender: (s: StateType) => void;
     getState: () => StateType;
     dispatch: (action: ActionType) => void;
 }
@@ -61,16 +62,19 @@ export const store: StoreType = {
             message: []
         },
     },
-    _rerender(s: StoreType) {
+    _rerender(s: StateType) {
     },
     getState() {
         return this._state
     },
-    subscribe(f: (s: StoreType) => void) {
+    subscribe(f: (s: StateType) => void) {
         this._rerender = f;
     },
-    dispatch(a: ActionType){
-    this._state.profilePage=profileReducer(this._state.profilePage,a);
-    this._rerender(this);
+    dispatch(a: ActionType) {
+        this._state.profilePage = profileReducer(this._state.profilePage, a);
+        this._rerender(this._state);
     },
-}
+}*/
+//заглушка
+const store={};
+export default  store;
