@@ -2,6 +2,8 @@ import React from 'react';
 import s from '../App.module.css';
 import {Posts} from './Posts';
 import {StoreType} from './Redux/store-redux';
+import {ReactComponent} from '*.svg';
+import {PostsContainer} from './PostsContainer';
 
 
 type ProfileType = {
@@ -25,7 +27,7 @@ export const Profile: React.FC<ProfileType> = ({data}) => {
                     Lelik Jan
                 </div>
             </div>
-            <Posts data={data}/>
+           <PostsContainer data={data}/>
         </div>
     </div>
 }
