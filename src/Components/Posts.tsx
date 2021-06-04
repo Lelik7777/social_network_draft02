@@ -1,12 +1,10 @@
 import React, {ChangeEvent} from 'react';
 import s from '../App.module.css';
 import {Post} from './Post';
-import {ActionType, ProfilePageType} from './Redux/Store';
-import {createAddPostAction, createOnChangeTextAction} from './Redux/profileReducer';
+
+
 
 type PostsType = {
-    data: ProfilePageType
-    dispatch: (a: ActionType) => void;
 }
 export const Posts: React.FC<PostsType> = ({data, dispatch}) => {
     const renderPosts = data.posts.map(d => <Post key={d.id} id={d.id} title={d.title} like={d.like}/>);

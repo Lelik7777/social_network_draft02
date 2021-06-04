@@ -1,13 +1,13 @@
 import React from 'react';
 import s from '../App.module.css';
 import {Posts} from './Posts';
-import {ActionType, ProfilePageType} from './Redux/Store';
+import {StoreType} from './Redux/store-redux';
+
 
 type ProfileType = {
-    data: ProfilePageType;
-    dispatch: (a: ActionType) => void;
+    data: StoreType;
 }
-export const Profile: React.FC<ProfileType> = ({data, dispatch}) => {
+export const Profile: React.FC<ProfileType> = ({data}) => {
     return <div className={s.profile}>
         <div className={s.img}>
             <img
@@ -25,7 +25,7 @@ export const Profile: React.FC<ProfileType> = ({data, dispatch}) => {
                     Lelik Jan
                 </div>
             </div>
-            <Posts data={data} dispatch={dispatch}/>
+            <Posts data={data}/>
         </div>
     </div>
 }
