@@ -8,7 +8,6 @@ import store, {StoreType} from './Components/Redux/store-redux';
 import StoreContext from './StoreContext';
 
 
-
 function rerenderApp(store: StoreType) {
     ReactDOM.render(
         <React.StrictMode>
